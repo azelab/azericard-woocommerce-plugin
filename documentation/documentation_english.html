@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="en" class="no-js">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700' rel='stylesheet' type='text/css'>
+
+	<link rel="stylesheet" href="css/reset.css"> <!-- CSS reset -->
+	<link rel="stylesheet" href="css/style.css"> <!-- Resource style -->
+	<link rel="stylesheet" href="css/magnific-popup.css"> <!-- Resource style -->
+	<script src="js/modernizr.js"></script> <!-- Modernizr -->
+	<title>Documentation - Azericard payment plugin for WooCommerce</title>
+</head>
+<body>
+<header>
+	<div class="theme_doc">
+		Documentation
+		<span style="font-size:12px; display:block; margin-top:10px">Azericard payment plugin for WooCommerce</span>
+	</div>
+</header>
+<section class="cd-faq">
+	<ul class="cd-faq-categories">
+		<li><a class="selected" href="#get_started">Let's Start</a></li>
+		<li><a href="#settings">Settings</a></li>
+		<li><a href="#payment">Payment</a></li>
+		<li><a href="#refund">Refund</a></li>
+		<li><a href="#support">Support</a></li>
+	</ul> <!-- cd-faq-categories -->
+dsd
+	<div class="cd-faq-items">
+
+
+		<ul id="get_started" class="cd-faq-group">
+			<li class="cd-faq-title"><h2>Начнем</h2></li>
+			<li>
+				<a class="cd-faq-trigger" href="#0">Download Plugin</a>
+				<div class="cd-faq-content">
+					<p>Thank you for downloading our plugin. You saved your time!</p>
+					<p>You can download the plugin <a target="_blank" href="https://github.com/azelab/azericard-woocommerce-plugin">here</a> page. Upload plugin archive into your website's <strong>/wp-content/plugins/</strong> directory</p>
+					<p>Alternatively you can add the plugin thru admin panel <strong>Plugins/Add New</strong>  and browse there plugin archive.</p>
+				</div> <!-- cd-faq-content -->
+			</li>
+
+			<li>
+				<a class="cd-faq-trigger" href="#0">WooCommerce Installation</a>
+				<div class="cd-faq-content">
+					
+					<p>Azericard Payment Gateway is extended plugin for WooCommerce plugin. Hence, it is necessary to install WooCommerce plugin at first.</p>
+
+				</div> <!-- cd-faq-content -->
+			</li>
+
+			<li>
+				<a class="cd-faq-trigger" href="#0">Activation</a>
+				<div class="cd-faq-content">
+					<p>After installation the plugin, it is necessary to activate it from: <strong>Plugins/Installed Plugins</strong> and click on "Activate" under Azericard plugin name</p>
+					<a href="images/get_started_1.jpg" class="lightbox"><img src="images/get_started_1.jpg" alt=""></a>
+				</div> <!-- cd-faq-content -->
+			</li>
+		</ul> <!-- cd-faq-group -->
+
+
+
+		<ul id="settings" class="cd-faq-group">
+			<li class="cd-faq-title"><h2>Settings</h2></li>
+
+			<li>
+				<a class="cd-faq-trigger" href="#0">Plugin Settings</a>
+				<div class="cd-faq-content">
+					<p>Go to <strong>WooCommerce/Settings/Payments/Azericard for the plugin settings</strong></p>
+					<a href="images/settings_1.jpg" class="lightbox"><img src="images/settings_1.jpg" alt=""></a>
+				</div> <!-- cd-faq-content -->
+			</li>
+			<li>
+				<a class="cd-faq-trigger" href="#0">Main Settings</a>
+				<div class="cd-faq-content">
+					<p>Please have a look at the screenshot below for the main settings of the Azericard Payment Gateway:</p>
+					<a href="images/settings_2.jpg" class="lightbox"><img src="images/settings_2.jpg" alt=""></a>
+					<ul>						
+						<li>1. <strong>Enable/Disable.</strong> To enable/disable Azericard Payment Gateway.</li>
+						<li>2. <strong>Title.</strong> It is displayed on the checkout page</li>
+						<li>3. <strong>Description.</strong> It is displayed on the checkout page.</li>
+						<li>4. <strong>Sale mode.</strong> Payment mode option. 
+							<ul>
+								<li>1) Test mode - This is test mode, you should run in test mode before completly ensure that everything works fine</li>
+								<li>2) Production mode - You card is charged in production mode. Please ask Azericard to switch your merchant account to production, before you switch on plugin settings</li>
+							</ul>
+						</li>
+						<li>5. <strong>Azericard url.</strong> A URL where payment query will be sent (Obtain from Azericard technical support).</li>
+						<li>6. <strong>Terminal.</strong> Terminal number for your merchant account (Obtain from Azericard technical support).</li>
+						<li>7. <strong>Key for sign.</strong> Key for sign (Obtain from Azericard technical support).</li>
+						<li>8. <strong>Return page.</strong> Url of the page where your customers will be returned.</li>
+					</ul>
+				</div> <!-- cd-faq-content -->
+			</li>
+			<li>
+				<a class="cd-faq-trigger" href="#0">Azericard Processing Center</a>
+				<div class="cd-faq-content">
+					<p>You should get all necessary credentials and informations from Azericard technical support <a href="mailto:tsupport@azericard.com">tsupport@azericard.com</a>  to enter into plugin settings</p>
+				</div> <!-- cd-faq-content -->
+			</li>
+		</ul> <!-- cd-faq-group -->
+		<ul id="payment" class="cd-faq-group">
+			<li class="cd-faq-title"><h2>Payment</h2></li>
+
+			<li>
+				<a class="cd-faq-trigger" href="#0">"Payments" Page</a>
+				<div class="cd-faq-content">
+					<p>After correct entry of all necessary settings you would see Azericard payment method on your website's checkout page.</p>
+					<a href="images/interface_1.jpg" class="lightbox"><img src="images/interface_1.jpg" alt=""></a>
+				</div> <!-- cd-faq-content -->
+			</li>
+			<li>
+				<a class="cd-faq-trigger" href="#0">Azericard Payment Method</a>
+				<div class="cd-faq-content">
+					<p>After checkout page, customer is sent to Azericard page where customer have to enter credit card details (in the test mode Azericard support provides special test credit card in testing purposes).</p>
+					<a href="images/interface_2.jpg" class="lightbox"><img src="images/interface_2.jpg" alt=""></a>
+				</div> <!-- cd-faq-content -->
+			</li>
+			<li>
+				<a class="cd-faq-trigger" href="#0">Orders Details</a>
+				<div class="cd-faq-content">
+					<p>
+					If everything entered correctly, customer can print and return to website.
+					</p>
+					<a href="images/interface_3.jpg" class="lightbox"><img src="images/interface_3.jpg" alt=""></a>
+				</div> <!-- cd-faq-content -->
+			</li>
+			<li>
+				<a class="cd-faq-trigger" href="#0">Orders in Admin Panel</a>
+				<div class="cd-faq-content">
+					<p>
+					If transaction successfully passed, you will see new order with "Processing" status. Otherwise with status "Pending Payment", and later will be changed to "Cencelled"
+					</p>
+					<a href="images/interface_4.jpg" class="lightbox"><img src="images/interface_4.jpg" alt=""></a>
+				</div> <!-- cd-faq-content -->
+			</li>
+		</ul> <!-- cd-faq-group -->
+		<ul id="refund" class="cd-faq-group">
+			<li class="cd-faq-title"><h2>Order Refund</h2></li>
+			<li>
+				<a class="cd-faq-trigger" href="#0">Order Refund</a>
+				<div class="cd-faq-content">
+					<p>Azericard processing center accept total refunds of order in case you need, and this plugin support it.</p>
+					<p>To refund administrator of website should go to <strong>WooCommerce/Orders/</strong> click on appropriate order, in landed page click  "Refund" button and fill in the refund form.</p>
+					<a href="images/refund_1.jpg" class="lightbox"><img src="images/refund_1.jpg" alt=""></a>
+					<p>After successful refund in "Order notes" will appear "Success! message - The payment was refunded.", and order status will be changed to "Refunded"</p>
+					<p>Otherwise you will see this message "Something wrong. The payment wasn't refunded. Please, try later.". In that case you can contact Azericard technical support for the refund status.</p>
+					<p><strong>Note: </strong>At the moment Azericard processing center doesn't allow to refund more that total order sum.</p>
+				</div> <!-- cd-faq-content -->
+			</li>
+		</ul> <!-- cd-faq-group -->
+		<ul id="support" class="cd-faq-group">
+			<li class="cd-faq-title"><h2>Support</h2></li>
+			<li>
+				<a class="cd-faq-trigger" href="#0">Support</a>
+				<div class="cd-faq-content">
+					<p>This plugin was carefully tested and the live website before publishing. But if you face any issues related to plugin, please open a ticket at our <a href="https://azelab.freshdesk.com" target="_blank">support board</a>, we will be happy to help.</a></p>
+				</div> <!-- cd-faq-content -->
+			</li>
+		</ul> <!-- cd-faq-group -->
+	</div> <!-- cd-faq-items -->
+	<a href="#0" class="cd-close-panel">Close</a>
+</section> <!-- cd-faq -->
+<script src="js/jquery-2.1.1.js"></script>
+<script src="js/jquery.mobile.custom.min.js"></script>
+<script src="js/fitVids.min.js"></script>
+<script src="js/magnific-popup.min.js"></script>
+<script src="js/main.js"></script> <!-- Resource jQuery -->
+</body>
+</html>

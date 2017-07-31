@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="en" class="no-js">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700' rel='stylesheet' type='text/css'>
+
+	<link rel="stylesheet" href="css/reset.css"> <!-- CSS reset -->
+	<link rel="stylesheet" href="css/style.css"> <!-- Resource style -->
+	<link rel="stylesheet" href="css/magnific-popup.css"> <!-- Resource style -->
+	<script src="js/modernizr.js"></script> <!-- Modernizr -->
+	<title>Документация - Платежный плагин Azericard для WooCommerce</title>
+</head>
+<body>
+<header>
+	<div class="theme_doc">
+		Документация
+		<span style="font-size:12px; display:block; margin-top:10px">Платежный плагин Azericard для WooCommerce</span>
+	</div>
+</header>
+<section class="cd-faq">
+	<ul class="cd-faq-categories">
+		<li><a class="selected" href="#get_started">Начнем</a></li>
+		<li><a href="#settings">Настройки</a></li>
+		<li><a href="#payment">Оплата</a></li>
+		<li><a href="#refund">Возврат</a></li>
+		<li><a href="#support">Поддержка</a></li>
+	</ul> <!-- cd-faq-categories -->
+
+	<div class="cd-faq-items">
+
+
+		<ul id="get_started" class="cd-faq-group">
+			<li class="cd-faq-title"><h2>Начнем</h2></li>
+			<li>
+				<a class="cd-faq-trigger" href="#0">Загрузка плагина</a>
+				<div class="cd-faq-content">
+					<p>Прежде всего, спасибо за скачку плагина. Мы очень ценим это и надеемся вам понравится. Подписывайтесь на нашу страницу в фейсбуку <a href="http://facebook.com/azelabcom/">Azelab</a></p>
+					<p>Для того, что-бы скачать плагин перейдите по ссылке <a target="_blank" href="https://github.com/azelab/azericard-woocommerce-plugin">Страница загрузки плагина</a>. Затем перенесите папку плагина в директорию Вашего wordpress <strong>/wp-content/plugins/</strong></p>
+					<p>Или Вы можете добавить наш плагин через панель администратора <strong>Плагины/Добавить новый/Ввести в поиске: "WooCommerce Azericard Payment Gateway"</strong>.</p>
+				</div> <!-- cd-faq-content -->
+			</li>
+
+			<li>
+				<a class="cd-faq-trigger" href="#0">Установка WooCommerce</a>
+				<div class="cd-faq-content">
+					
+					<p>Azericard Payment Gateway служит расширением функционала для платформы WooCommerce, по этому установка этого плагина обязательна.</p>
+
+				</div> <!-- cd-faq-content -->
+			</li>
+
+			<li>
+				<a class="cd-faq-trigger" href="#0">Активация</a>
+				<div class="cd-faq-content">
+					<p>После установки плагина нужно перейти в панели администратора: <strong>Плагины/Установленные плагины/Нажать кнопку "Активировать"</strong></p>
+					<a href="images/get_started_1.jpg" class="lightbox"><img src="images/get_started_1.jpg" alt=""></a>
+				</div> <!-- cd-faq-content -->
+			</li>
+		</ul> <!-- cd-faq-group -->
+
+
+
+		<ul id="settings" class="cd-faq-group">
+			<li class="cd-faq-title"><h2>Настройки</h2></li>
+
+			<li>
+				<a class="cd-faq-trigger" href="#0">Настройка плагина</a>
+				<div class="cd-faq-content">
+					<p>После активации обеих плагинов можно начать настройку Azericard Payment Gateway</p>
+					<p>Для этого нужно перейти <strong>WooCommerce/Настройки/Платежи/Azericard</strong></p>
+					<a href="images/settings_1.jpg" class="lightbox"><img src="images/settings_1.jpg" alt=""></a>
+				</div> <!-- cd-faq-content -->
+			</li>
+			<li>
+				<a class="cd-faq-trigger" href="#0">Основные настройки</a>
+				<div class="cd-faq-content">
+					<p>Ниже указаны основные опции с помощью которых можно настроить Azericard Payment Gateway:</p>
+					<a href="images/settings_2.jpg" class="lightbox"><img src="images/settings_2.jpg" alt=""></a>
+					<ul>						
+						<li>1. <strong>Enable/Disable.</strong> Опция для активации/деактивации модуля Azericard Payment Gateway.</li>
+						<li>2. <strong>Title.</strong> Заголовок, который будет выводится на странице Платежи, при выборе способа оплаты.</li>
+						<li>3. <strong>Description.</strong> Описание, которое будет выводится на странице Платежи, при выборе способа оплаты.</li>
+						<li>4. <strong>Sale mode.</strong> Выбор режима работы. 
+							<ul>
+								<li>1) Test mode - это режим для настройки и тестирования оплаты Azericard.</li>
+								<li>2) Production mode - это режим для работы с реальной системой оплаты Azericard.</li>
+							</ul>
+						</li>
+						<li>5. <strong>Azericard url.</strong> Ссылка, на которую будет посылаться запрос на оплату товара (Нужно получить в поддержке Azericard).</li>
+						<li>6. <strong>Terminal.</strong> Номер терминала для текущего магазина (Нужно получить в поддержке Azericard).</li>
+						<li>7. <strong>Key for sign.</strong> Ключ для верификации текущего магазина (Нужно получить в поддержке Azericard).</li>
+						<li>8. <strong>Return page.</strong> Страница, на которую пользователь будет возвращаться после оплаты.</li>
+					</ul>
+				</div> <!-- cd-faq-content -->
+			</li>
+			<li>
+				<a class="cd-faq-trigger" href="#0">Взаимодействие с Azericard</a>
+				<div class="cd-faq-content">
+					<p>Для настройки терминала для Вашего магазина и получения необходимых полей настроек, необходимо обратиться в поддержку Azericard по адресу <a href="mailto:tsupport@azericard.com">tsupport@azericard.com</a></p>
+				</div> <!-- cd-faq-content -->
+			</li>
+		</ul> <!-- cd-faq-group -->
+		<ul id="payment" class="cd-faq-group">
+			<li class="cd-faq-title"><h2>Оплата</h2></li>
+
+			<li>
+				<a class="cd-faq-trigger" href="#0">Страница "Платежи"</a>
+				<div class="cd-faq-content">
+					<p>После всех настроек на странице "Платежи" добавится способ оплаты Azericard.</p>
+					<a href="images/interface_1.jpg" class="lightbox"><img src="images/interface_1.jpg" alt=""></a>
+				</div> <!-- cd-faq-content -->
+			</li>
+			<li>
+				<a class="cd-faq-trigger" href="#0">Форма оплаты Azericard</a>
+				<div class="cd-faq-content">
+					<p>После отправки формы со страницы "Платежи" пользователя перенаправит на сервер оплаты Azericard, где нужно ввести данные карточки.</p>
+					<a href="images/interface_2.jpg" class="lightbox"><img src="images/interface_2.jpg" alt=""></a>
+				</div> <!-- cd-faq-content -->
+			</li>
+			<li>
+				<a class="cd-faq-trigger" href="#0">Отчет о проведенной операции</a>
+				<div class="cd-faq-content">
+					<p>Если все данные были введены верно, пользователю предоставится отчет о проведенной операции. После чего он сможет вернуться на страницу (1)(указанную в поле "Основные настройки/Return page"), либо распечатать отчет (2).</p>
+					<a href="images/interface_3.jpg" class="lightbox"><img src="images/interface_3.jpg" alt=""></a>
+				</div> <!-- cd-faq-content -->
+			</li>
+			<li>
+				<a class="cd-faq-trigger" href="#0">Заказ в панеле администратора</a>
+				<div class="cd-faq-content">
+					<p>Если оплата прошла успешно, в панеле администратора WooCommerce/Заказы появится новый заказ со статусом "Обработка (Processing)". Если же оплата не прошла, заказ будет добавлен со статусом "В ожидании оплаты (Panding Payment)", а позже будет изменен на "Отменен (Canceled)".</p>
+					<a href="images/interface_4.jpg" class="lightbox"><img src="images/interface_4.jpg" alt=""></a>
+				</div> <!-- cd-faq-content -->
+			</li>
+		</ul> <!-- cd-faq-group -->
+		<ul id="refund" class="cd-faq-group">
+			<li class="cd-faq-title"><h2>Возврат платежей</h2></li>
+			<li>
+				<a class="cd-faq-trigger" href="#0">Возврат платежа</a>
+				<div class="cd-faq-content">
+					<p>Платформа Azericard позволяет вернуть полную стоимость заказа на карту клиента.</p>
+					<p>Для этого администратору нужно перейти в панеле по ссылке <strong>WooCommerce/Заказы/Конкретный заказ</strong>, нажать кнопку "Возврат (Refund)" и заполнить форму возврата.</p>
+					<a href="images/refund_1.jpg" class="lightbox"><img src="images/refund_1.jpg" alt=""></a>
+					<p>После успешного возврата, в правой панеле заказа "Заказ заметки (Order notes)" появится комментарий "Success! The payment was refunded.", а статус заказа будет изменен на "Возвращен (Refunded)."</p>
+					<p>Если возврат не произошел, появится комментарий "Something wrong. The payment wasn't refunded. Please, try later.".</p>
+					<p><strong>Заметка: </strong>На данный момент Azericard позволяет вернуть  не более полной стоимости заказа.</p>
+				</div> <!-- cd-faq-content -->
+			</li>
+		</ul> <!-- cd-faq-group -->
+		<ul id="support" class="cd-faq-group">
+			<li class="cd-faq-title"><h2>Поддержка</h2></li>
+			<li>
+				<a class="cd-faq-trigger" href="#0">Поддержка</a>
+				<div class="cd-faq-content">
+					<p>Данный плагин был тщательно протестирован на живом сайте. Тем не менее, если у вас возникнут вопросы, пожалуйста обращайтесь в нашу <a href="https://azelab.freshdesk.com" target="_blank">службу поддержки</a>, мы будем рады вам помочь.</a></p>
+				</div> <!-- cd-faq-content -->
+			</li>
+		</ul> <!-- cd-faq-group -->
+	</div> <!-- cd-faq-items -->
+	<a href="#0" class="cd-close-panel">Close</a>
+</section> <!-- cd-faq -->
+<script src="js/jquery-2.1.1.js"></script>
+<script src="js/jquery.mobile.custom.min.js"></script>
+<script src="js/fitVids.min.js"></script>
+<script src="js/magnific-popup.min.js"></script>
+<script src="js/main.js"></script> <!-- Resource jQuery -->
+</body>
+</html>

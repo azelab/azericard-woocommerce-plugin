@@ -1,0 +1,1283 @@
+*	{ margin:0; padding:0; }
+body {
+    overflow-y:scroll !important;
+    font:12px/1 Helvetica,arial,sans-serif;
+    background:#ccc url(../img/bg-pattern.png);
+}
+a	{ text-decoration:none; }
+
+/* Common Style
+----------------------------------*/
+input[type=text],
+input[type=password] {
+    width:216px;
+    height:14px;
+    padding:2px 5px;
+    border:1px solid #999;
+    border-color: #c9c9c9 #b5b5b5 #d8d8d8;
+    background-color: #f4f4f4;
+    line-height: 14px;
+    font-weight:normal;
+    font-size:12px;
+    -webkit-box-shadow: #717171 0 -1px 0;
+}
+
+.btnDark{
+  float:right;
+	cursor: pointer;
+	margin-top: 3px;
+	border: 1px solid #000;
+  padding: 0 7px;
+	height: 20px;
+  border-radius: 3px;
+  color:#FFF;
+	line-height: 20px;
+	background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#808080), to(#404040));
+	-webkit-box-shadow: rgba(255, 255, 255, 0.4) 0 1px 0;
+	background-image:-moz-linear-gradient(top, #808080, #404040);
+	box-shadow: rgba(255, 255, 255, 0.4) 0 1px 0;
+}
+.btnDark:hover{
+	color: #fff;
+  background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#909090), to(#505050));
+  background-image:-moz-linear-gradient(top, #909090, #505050);
+}
+.btnDark:active{
+  background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#404040), to(#808080));
+	background-image:-moz-linear-gradient(top, #404040, #808080);
+}
+
+/* Tool Panel
+----------------------------------*/
+#tool-panel {
+    position:fixed; top:0; left:0; z-index:3000;
+    width:100%; height:48px;
+    background:#464646 url(../img/tool-panel-bg.png) repeat-x fixed 0 0;
+}
+#tool-panel a#logo {
+    position:absolute; z-index:2;
+    height:24px; bottom:0; left:48px; padding-left:54px;/* 48+6 */
+    background:url("../img/logo-half.png") no-repeat top left;
+    color:#666; font-size:14px; line-height:24px;
+}
+#tool-panel a#logo:hover {
+    background:url(../img/logo-half.png) no-repeat bottom left;
+    color:#fff;
+}
+
+#tool-panel>div {
+    margin:0 auto; padding:12px 240px;
+    min-width:440px; height:24px; 
+    text-align:center;
+}
+
+#tool-panel>div>a  {
+    display:inline-block;
+    padding:2px 5px;
+    width:20px; height:20px;  
+    background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#F8F8F8), to(#D2D2D2));
+    background-image:-moz-linear-gradient(top, #F8F8F8, #D2D2D2);
+		-webkit-box-shadow: #222 2px 2px 2px;
+		box-shadow: #222 2px 2px 2px;
+    color:#000;
+    text-shadow: 0 1px 0 #f5f5f5;
+}
+#tool-panel>div>a.active, #tool-panel>div>a:hover { 
+	background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#fff), to(#e5e5e5)); 
+	background-image:-moz-linear-gradient(top, #fff, #e5e5e5);
+}
+#tool-panel>div>a:active { 
+	background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#e5e5e5), to(#ddd)); 
+	background-image:-moz-linear-gradient(top, #e5e5e5, #ddd);
+}
+
+#tool-panel>div>a>span, #exit span {
+    display:inline-block;
+    width:20px; height:20px;
+    background-image:url(../img/icons.png); background-repeat:no-repeat;
+}
+#tool-panel>div>a>b {
+    float:left;
+    width:20px; height:20px;
+    background-image:url(../img/icons.png); background-repeat:no-repeat;
+}
+#tool-panel #undo { 
+    visibility:hidden; /*float:right; resize need*/
+    margin-right:0; 
+    padding:2px 7px;
+    -webkit-border-radius:6px;
+		border-radius:6px;
+}
+
+#tool-panel #crop { 
+    padding-left:6px;
+    border-right:1px solid #c1c1c1;
+    -webkit-border-top-left-radius:6px; 
+		-webkit-border-bottom-left-radius:6px;
+		border-top-left-radius:6px; 
+		border-bottom-left-radius:6px;
+}
+#tool-panel #rectangle { border-left:1px solid #efefef; }
+#tool-panel #text { border-right:1px solid #c1c1c1; }
+#tool-panel #color { 
+	-webkit-border-top-right-radius:6px; 
+	-webkit-border-bottom-right-radius:6px; 
+	border-top-right-radius:6px;
+	border-bottom-right-radius:6px; 
+	position:relative; 
+	padding-right:6px; 
+	border-left:1px solid #efefef; 
+	margin-right:10px; 
+}
+#resize { 
+    float:right;
+    width:60px !important; margin-right:10px; border-radius:6px;
+}
+#tool-panel #save, #tool-panel #done, #tool-panel #cancel { 
+    -webkit-border-radius:6px; 
+		border-radius:6px;
+		width:auto; padding:2px 8px 2px 6px; 
+		font-size:14px; line-height:20px; }
+#tool-panel #done, #tool-panel #cancel { display:none; }
+#tool-panel #done { margin-right:20px; font-size:13px !important; font-weight:bold; }
+#tool-panel>div>a#save { 
+    margin-left:40px;
+    border: 1px solid #f5f5f5;
+    height: 18px;
+    vertical-align: top;
+    font-weight:bold; font-size: 13px !important; line-height: 18px; 
+}
+
+/* feedback buttons */
+#feedback {
+    display:none;
+    float:right;
+    list-style:none;
+    height:22px;
+    margin-top:26px;  margin-right: 200px;
+    padding-left:89px; 
+}
+
+#feedback li {
+    position: relative;
+    float:left;
+    height:19px;
+    margin-top: 3px; margin-right: 12px;
+    -webkit-transition-property:margin-top;
+    -webkit-transition-duration: 0.1s;
+    -webkit-transition-timing-function: ease-in-out;
+		-moz-transition: margin-top 0.1s ease-in-out;
+}
+li#domeafavor, li#recommend {
+    margin-top:0; margin-right:15px;
+    -webkit-transition:none;
+		-moz-transition:none;
+}
+li#domeafavor {
+    width:80px; height:22px;
+    background:transparent url(../img/text-domeafavor.png) 0 50% no-repeat;
+}
+li#recommend {
+    width:63px; height:22px;
+    margin-left: 40px;
+    background:transparent url(../img/text-recommend.png) 0 50% no-repeat;
+}
+
+#feedback li:hover {
+    height:22px;
+    margin-top: 0;
+    -webkit-transition-property:height, margin-top;
+    -webkit-transition-duration: 0.1s, 0.1s;
+    -webkit-transition-timing-function: ease-in-out, ease-in-out;
+		-moz-transition-property:height, margin-top;
+		-moz-transition-duration: 0.1s, 0.1s;
+		-moz-transition-timing-function: ease-in-out, ease-in-out;
+}
+#feedback li::before {
+    content:'';
+    position:absolute;
+    top:-20px; left: -137px;
+    width:300px;
+    text-align: center;
+    color:#F5F5F5;
+    font-weight: bold;
+}
+li#contribute::before {
+	left: -102px;
+}
+li#tweet {
+    width:24px;
+}
+li#tweet:hover::before {
+    content:'Please Tweet about Awesome Screenshot';
+}
+li#rating {
+    width:26px;
+}
+li#rating:hover::before {
+    content:'Give it a nice 5-star rating to show your support!';
+}
+li#cemail {
+    width:28px;
+}
+li#cemail:hover::before {
+    content:'Contact screenshot@diigo.com for suggestions.';
+}
+li#contribute {
+	width:96px;
+}
+li#contribute:hover::before {
+  content:'Make a small contribution.';
+}
+
+li#diigo_web_highlighter {
+    width:24px;
+}
+li#diigo_web_highlighter:hover::before {
+    content:'Web Highlighter - Another Extension by Diigo';
+}
+
+#feedback li a {
+    display:inline-block;
+    width:100%; height:100%;
+    background:#FFF url(../img/icons-options.png) 0 0 no-repeat;
+}
+
+li#tweet a {
+    background-position:0 0;
+}
+li#tweet:hover a {
+		background-position:0 -19px;
+}
+li#rating a{
+    background-position:-24px 0;
+}
+li#rating:hover a{
+    background-position:-24px -19px;
+}
+li#cemail a {
+    background-position:-50px 0;
+}
+li#cemail:hover a {
+    background-position:-50px -19px;
+}
+li#contribute a {
+    background-position:-102px 0;
+}
+li#contribute:hover a {
+    background-position:-102px -19px;
+}
+
+li#diigo_web_highlighter a {
+    background-position:-78px 0;
+}
+li#diigo_web_highlighter:hover a {
+    background-position:-78px -19px;
+}
+
+/* tip */
+#tip {
+    display:none;
+    position:absolute; 
+    top:12px; left: 0;
+    z-index:1000;
+    margin:0 40% !important;
+    padding: 0 !important;
+    border: 1px solid #E5B800;
+    border-radius:5px !important;
+    min-width:200px !important;
+    height:22px !important;
+    background-color: #FFF2BF;
+    color: #000 !important;
+    font-size: 12px; font-weight: bold;
+    text-align:center;
+    -webkit-box-shadow: 0px 1px 1px rgba(0, 0, 0, .5);
+		box-shadow: 0px 1px 1px rgba(0, 0, 0, .5);
+}
+#tip span {
+    margin-top:5px !important;
+    display:inline-block !important;
+}
+
+/* exit button */	
+#exit {
+    position:fixed; top:12px; right:10px;
+    padding: 2px 5px;
+}
+#exit span { background-position:-320px -20px; }
+#exit:hover span { background-position:-320px 0; }
+
+#undo span { background-position:-200px 0; }
+#undo.disable:hover { 
+	background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#F8F8F8), to(#D2D2D2)) !important; 
+	background-image:-moz-linear-gradient(top, #F8F8F8, #D2D2D2) !important;
+}
+#crop span { background-position:0 0; }
+#rectangle span { background-position:-20px 0; }
+#ellipse span { background-position:-40px 0; }
+#arrow span { background-position:-60px 0; }
+#line span { background-position:-80px 0; }
+#free-line span { background-position:-100px 0; }
+#blur span { background-position:-240px 0; }
+#text span { background-position:-120px 0; }
+#tool-panel #color>span { 
+	-webkit-background-clip:content-box; 
+	background-clip:content-box; 
+	width:16px; height:16px; padding:2px; background-position:-140px 0; background-color:#F00; 
+}
+#color ul {
+    position:absolute; top:30px; left:-49px; list-style:none;
+    display:none; width:121px; height:39px; padding:7px 3px 9px 5px;
+    background:url(../img/color.png) no-repeat 0 0;
+}
+#color ul:before {
+    content:url(../img/color-arrow.png);
+    position:absolute; top:-10px; left:61px; z-index:1;
+}
+#color ul li { 
+    float:left; width:17px; height:17px; border:1px solid #5F92FF; margin:0 1px 1px 0;
+}
+#color ul li:hover {
+    border-color:#fff;
+}
+
+/*#resizer span { 
+	width:30px; 
+	border-right: 1px solid #C1C1C1;
+}*/
+#resizer ul { }
+
+#save b { background-position:-220px -1px; margin-right:4px; }
+#done b { background-position:0 0; margin-right:4px; }
+#cancel b { background-position:-180px 0; margin-right:4px; }
+
+/* Edit Area
+----------------------------------*/
+#edit-area {
+    position:relative; 
+    overflow:hidden;
+    margin:48px auto 0; 
+    -webkit-box-shadow: 5px 5px 10px #404040;
+		box-shadow: 5px 5px 10px #404040;
+}
+#edit-area.add-margin { margin-top:88px; margin-bottom:48px; }
+#save-image, #save-tip, #re-edit, #helper { display:none; }
+canvas, #helper, #crop-tip { position:absolute; top:0; left:0; }
+
+#edit-area div[contenteditable] { 
+    display:none; position:absolute; outline:none; overflow:hidden;
+    background:rgba(255,255,255,0);
+    font:bold 14px/18px Arial,Helvetica,sans-serif; text-align:left;
+}	
+#input-helper { 
+    visibility:hidden; font:bold 14px/18px Arial,Helvetica,sans-serif; text-align:left;
+}
+input { 
+    position:absolute;
+    border:none; outline:none; background:rgba(255,255,255,0);
+    font:bold 14px/18px Arial,Helvetica,sans-serif; text-align:left;
+}
+
+#helper { position:absolute; width:100%; height:100%; }
+#helper>* { position:absolute; }
+#crop-tip { 
+    display:inline-block; z-index:1;
+    width:140px; padding:0 10px; border-radius:10px; background-color:rgba(0, 0, 0, 0.7);
+    color:#eee; text-align:center; line-height:20px;
+}
+#crop_size { 
+    display:none; position:absolute; z-index:5000; top:-30px; left:0;
+    min-width:60px; padding:0 10px; border-radius:10px; background-color:rgba(0, 0, 0, 0.7); cursor:default;
+    color:#eee; text-align:center; line-height:20px;
+}
+#top { top:0; left:0; }
+#right { top:0; right:0; }
+#bottom { right:0; bottom:0; }
+#left { bottom:0; left:0; }
+#center { 
+	cursor:move; 
+	/*	Chrome and FF render outline differently
+			In chrome, the border not include absolute element, 
+			But FF does. So we use border.
+		*/
+	border:1px dashed #777; 
+}
+#center div { display:none; }
+
+.lightLink{
+    display:inline !important;
+    float:none !important;
+}
+/* Promote 
+----------------------------------*/
+#promote {
+    display:none;
+    position:fixed; bottom:0; right:0;
+    width:84px; height:101px;
+    background:url(../img/corner-collapsed.png) right bottom no-repeat;
+    cursor:pointer;
+    color: #fff;
+}
+#promote.expanded {
+    width:700px; height:382px;
+    background-image:url(../img/corner-expanded.png);
+}
+#promote #content {
+    display: none;
+    margin-top: 340px;
+    margin-right:100px;
+    text-align: right;
+}
+#promote p{
+    line-height: 2;
+    margin-bottom: 10px;
+}
+#promote a { 
+    color:#fff;
+    text-decoration:none;
+    background-color:#333;
+    padding:0 5px;
+    border-radius:5px;
+}
+#promote a:hover {
+    text-decoration:none;
+    background-color:#000;
+    color:#fff;
+}
+#promote #diigo_highlighter{
+    font-size: 13px;
+}
+#promote #diigo_highlighter a{
+    font-weight: bold;
+    font-size: 12px;
+}
+
+/* Crop
+----------------------------------*/
+body.crop #edit-area div[contenteditable] { display:none; } /* add 'body' to over-write .draw-text */
+
+.crop #helper { display:block; cursor:crosshair; }
+.crop #center div { display:none !important; }
+
+/* Selected
+----------------------------------*/
+.selected #tool-panel>div { text-align:center; }
+.selected #tool-panel>div a,
+.selected .tip, .selected .annotate { display:none; }
+.selected #tool-panel>div a#done, 
+.selected #tool-panel>div a#cancel { display:inline-block; }
+
+
+.selected #top, 
+.selected #right,
+.selected #bottom,
+.selected #left { background-color:rgba(0, 0, 0, 0.25); cursor:default;  }
+.selected #center div { display:block !important; }
+
+/* Cropped
+----------------------------------*/
+.cropped #tool-panel #undo { visibility:visible; }
+.cropped #edit-area { margin-top:88px; }
+
+/* resized
+----------------------------------*/
+.resized #tool-panel #undo { visibility:visible; }
+
+/* Draw
+----------------------------------*/
+.draw #show-canvas { cursor:crosshair;}
+.draw #draw-canvas:hover { 
+    cursor:move !important;
+}
+.draw_free_line #draw-canvas:hover { 
+    cursor:crosshair !important;
+}
+
+#draw-canvas[width="0"],
+#draw-canvas[height="0"] {
+		/* 	Even we set canvas's width and height to 0, 
+				FF still render it as a 300x150 box.
+				Chrome has no such issue.
+		*/
+		display:none; 
+} 
+
+/* Draw Blur
+----------------------------------*/
+.blurBugFix {
+	margin-bottom:1px; /* fix blur bug fix */
+}
+
+.draw-blur #show-canvas { 
+    /** 2010-08-04 18:01:36
+	Must add 'default' keyword, 
+	otherwise there is a f**king annoying bug
+	(cursor image just don't show up)
+	which wasted me one afternoon! 
+	*/
+    cursor: url(../img/cursor-blur.png), default;
+}
+/* Draw Text
+----------------------------------*/
+.draw-text #edit-area div[contenteditable] { display:block; }
+.draw-text #show-canvas { cursor:text; }
+
+/* Save
+----------------------------------*/
+.save #tool-panel>div { display:none; }
+.save #feedback { display:block !important; }
+
+body.save #edit-area {
+   /*  margin-top:100px;
+    padding:1px 5% 0; // 1px for save-image top outline
+    border:none; outline:none;
+    width:90% !important; height:auto !important;
+    -webkit-box-shadow: none; */
+		
+		margin: 100px auto 0px;
+		/* border:1px solid #000; */
+		width: 960px !important;
+		height: 600px !important;
+		border-radius:10px;
+}
+
+#save_image_wrapper {
+    float:left;
+    /* padding-bottom:15px; */
+    width:50%;
+    text-align:center;
+}
+#save_image_wrapper>div:first-child {
+		height:550px;
+		overflow-y:auto;
+}
+#save_image_wrapper>div:last-child {
+		/* position:absolute; 
+		bottom:0; */
+		text-align: left;
+		height:30px;
+}
+
+#image_loader { 
+    display:none;
+    padding-left:26px; background:url(../img/loader.gif) no-repeat 0 50%;
+    color:#f5f5f5; line-height:32px;
+    text-shadow: 0px -1px 0px #404040;
+}
+.save #save-image { 
+    display:block;
+    /* -webkit-box-shadow:0 5px 10px #404040; */
+    margin: 0 auto;
+}
+.save #re-edit {
+    display:inline-block;
+		margin-top: 12px;
+    padding:3px 5px;
+    background-color:#404040;
+    color:#eee;
+    border-radius:5px;
+}
+.save #re-edit:hover { 
+    background-color:#101010;
+    color:#fff;
+    text-decoration:none;
+}
+
+.save #promote  {
+    display:block;
+}
+
+/* save tip */
+.save #save-tip { display:block; width:48%; float:right; }
+/* .save #save-tip>div { 
+    text-shadow: 0 1px 0 #404040;
+    float:left;
+    width:80%; margin-bottom: 40px; padding-left:15%; background:url(../img/arrow.png) 0 50px no-repeat;
+    color: #F5F5F5;
+    font-weight:bold;
+} */
+.save #save-tip h2 { padding-bottom:30px; color: #57D4FF; font-size:20px; }
+.save #save-tip h3 { font-size:13px; }
+.save #save-tip dt { color: #ddd; padding:20px 0 10px; font-size:13px; line-height:1.4em; }
+.save #save-tip dd { padding-left:62px; font-weight:normal; font-size:13px; line-height:24px; }
+.save #save-tip dd { padding-left:0px; }
+
+#share .tip {
+    position:relative;
+    display:inline-block;
+    margin-left:5px;
+    color:#BBB !important;
+    cursor:pointer;
+    font-size: 12px !important;
+}
+.tip div {
+    display:none;
+    position:absolute;
+    right:-60px; top:-50px;
+    padding: 5px 10px;
+    color:#fff !important;
+    background: rgba(0, 0, 0, .7);
+    border-radius: 10px;
+    -webkit-box-shadow: 0 1px 5px rgba(0, 0, 0, .4);
+		box-shadow: 0 1px 5px rgba(0, 0, 0, .4);
+    font-weight: normal;
+} 
+#share .tip:hover div {
+    display:block;
+}
+
+.tip div a{
+    color: #fff;
+}
+
+
+#share+dd div { display:none; line-height:18px; }
+#error { line-height: 20px !important; }
+
+#save_local+dd p+p { font-size:12px; }
+
+.save #save-tip dd a { float:left; margin-right:10px; color:#f5f5f5; }
+.save #save-tip dd a:hover { text-decoration:underline; }
+.save #save-tip dd a span { float:left; margin-right:4px; padding:2px 0; background-image:url('../img/icons-16.png'); background-repeat:no-repeat; width:16px; height:16px; }
+.save #save-tip dd a#gmail span { background-position:0 50%; }
+.save #save-tip dd a#yahoo span { background-position:-16px 50%; }
+.save #save-tip dd a#hotmail span { background-position:-32px 50%; }
+.save #save-tip dd a#twitter span {background-position:-48px 50%; }
+.save #save-tip dd a#facebook span { background-position:-64px 50%; }
+.save #save-tip dd a#buzz span { background-position:-80px 50%; }
+
+.save #save-tip dd a#upload, .save #save-tip dd a#save_button {
+    display:inline-block;
+    height:20px;
+    margin-right:10px;
+    padding:2px 7px;
+    background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#F8F8F8), to(#D2D2D2));
+    background-image:-moz-linear-gradient(top, #F8F8F8, #D2D2D2);
+		-webkit-box-shadow: #303030 0 1px 2px;
+		box-shadow: #303030 0 1px 2px;
+    color:#000;
+    line-height: 21px;
+    text-shadow: 0 1px 0 #f5f5f5;
+    -webkit-border-radius:6px;
+		border-radius:6px;
+}
+
+.save #save-tip dd a#save_button { 
+    float:none;
+}/*v2.0*/
+.save #save-tip dd a#save_button span {
+    float:left;
+    padding:0; margin-right:5px; width:20px; height:20px;
+    background:url('../img/icons.png') no-repeat -160px 0;
+}/*v2.0*/
+.save #save-tip dd a#upload:hover, .save #save-tip dd a#save_button:hover { 
+	text-decoration:none!important; 
+	background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#fff), to(#e5e5e5)); 
+	background-image:-moz-linear-gradient(top, #fff, #e5e5e5);
+}
+.save #save-tip dd a#upload:active, .save #save-tip dd a#save_button:active { 
+	background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#e5e5e5), to(#ddd)); 
+	background-image:-moz-linear-gradient(top, #e5e5e5, #ddd);
+}
+.save #save-tip dd a#upload span{ float:left; margin-right:5px; width:20px; height:20px; padding:0; background:url('../img/icons.png') no-repeat -280px 0; }
+
+.save #save-tip dd a#upload.disable_upload {
+    /*display:none;*/
+    color:#999;
+}
+.save #save-tip dd a#upload.disable_upload span {
+    background:url('../img/icons.png') no-repeat -280px -20px;
+}
+
+#loader { padding-left:22px; background:url('../img/loader.gif') no-repeat 0 4px; }
+#loader a, #error a{ float:none !important;margin-left: 10px;background-color:#606060; color:#eee !important; padding:1px 5px; text-shadow:none !important; border-radius:5px; }
+#loader a:hover, #error a:hover{text-decoration:none!important;background-color:#333;color:#fff;}
+#error a{margin: 0!important;}
+#error p{margin-bottom: 5px;}
+
+#share+dd #email-link { padding-bottom:12px; }
+#share-button { padding-bottom:10px; }
+#share-button:after, #email-link:after { content:'.'; display:block; height:0; visibility:hidden; clear:both; }
+#save-tip #share-button a { float:left; line-height:22px; background-position:6px 2px; }
+a.visited { color:#bbb !important; }
+
+#share-link { height:22px; padding-bottom:26px; line-height:22px; }
+#share-link p { padding-bottom:5px; }
+#share-link  input {
+    width:256px;
+    height:20px;
+    padding:2px 5px;
+    border:1px solid #999;
+    border-color: #c9c9c9 #b5b5b5 #d8d8d8;
+    -webkit-box-shadow: #717171 0 -1px 0;
+		box-shadow: #717171 0 -1px 0;
+    background-color: #f4f4f4;
+    font-weight:normal;
+    font-size:12px;
+}
+#share-link span { 
+    display:none; margin-left:-80px;
+    color:#57D4FF; font-size:12px;
+    line-height: 26px;
+}
+
+/* Drag and Resize
+----------------------------------*/
+.ui-resizable { position: relative !important;}
+.ui-resizable-handle { 
+    position: absolute !important; z-index: 999 !important; display: block !important;
+    background:url(../img/spot.png) no-repeat center center !important;
+    font-size: 0.1px !important;
+}
+.ui-resizable-disabled .ui-resizable-handle, .ui-resizable-autohide .ui-resizable-handle { display: none !important; }
+.ui-resizable-n { cursor: n-resize !important; height: 9px !important; width: 100% !important; top: -5px !important; left: 0 !important; }
+.ui-resizable-s { cursor: s-resize !important; height: 9px !important; width: 100% !important; bottom: -5px !important; left: 0 !important; }
+.ui-resizable-e { cursor: e-resize !important; width: 9px !important; right: -5px !important; top: 0 !important; height: 100% !important; }
+.ui-resizable-w { cursor: w-resize !important; width: 9px !important; left: -5px !important; top: 0 !important; height: 100% !important; }
+.ui-resizable-se { cursor: se-resize !important; width: 9px !important; height: 9px !important; right: -5px !important; bottom: -5px !important; }
+.ui-resizable-sw { cursor: sw-resize !important; width: 9px !important; height: 9px !important; left: -5px !important; bottom: -5px !important; }
+.ui-resizable-nw { cursor: nw-resize !important; width: 9px !important; height: 9px !important; left: -5px !important; top: -5px !important; }
+.ui-resizable-ne { cursor: ne-resize !important; width: 9px !important; height: 9px !important; right: -5px !important; top: -5px !important; }
+
+/* v3.0
+----------------------------------*/
+
+/* save page UI */
+/* .save #edit-area {
+	position:absolute;
+	top:0;
+	bottom:40px;
+} */
+#edit-area.add-margin {
+	bottom:0;
+}
+
+#saveWrapper {
+	width:100%;
+	height:100%;
+	color:#DEDEDE;
+	/* border:1px solid #000;
+	border-radius:10px; */
+}
+#saveWrapper::after, 
+.clear::after {
+	content: '';
+	display: block;
+	height: 0;
+	clear: both;
+	visibility: hidden;
+}
+
+.save #saveImageOuter {
+	position:relative;
+	float:left;
+	width:70%;
+	height:100%;
+	background-color:#FFF;
+	border-top-left-radius: 10px;
+	border-bottom-left-radius: 10px;
+}
+.save #saveTipOuter {
+	position:relative;
+	float:left;
+	width:30%;
+	height:100%;
+	background-color:#454249;
+	border-top-right-radius: 10px;
+	border-bottom-right-radius: 10px;
+}
+.save #save_image_wrapper,
+.save #save-tip {
+	position:absolute;
+	top:10px; right:10px; bottom:10px; left:10px;
+	width:auto;
+}
+#save-tip ul {
+	list-style:none;
+}
+#save-tip input {
+	position:static;
+}
+
+#saveOnline, #saveLocal {
+	margin-bottom:20px;
+}
+#saveOnline h3,
+#saveLocal h3,
+#saveOptionHead {
+	border-top: 1px solid #5D5962;
+	border-bottom: 1px solid #3E3238;
+	padding: 5px 10px;
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px;
+	background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#504C56), to(#3F3C44));
+	background-image:	-moz-linear-gradient(top, #504C56, #3F3C44);
+}
+#saveOnline .content,
+#saveLocal .content {
+	padding:10px;
+	background-color: #4E4C52;
+	border-bottom-left-radius: 5px;
+	border-bottom-right-radius: 5px;
+}
+
+#saveOnline .content span:first-child,
+#saveLocal .content span:first-child {
+	float: left;
+	margin-top: 6px;
+}
+
+/* .save #save-image {
+	 max-height:100%; 
+	width:auto;
+} */
+
+/* Upload to Diigo
+----------------------------------*/
+.button {
+	float:right;
+	display:inline-block;
+	margin-top:5px;
+	padding:2px 7px;
+	height:20px;
+	background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#F8F8F8), to(#D2D2D2));
+	background-image:-moz-linear-gradient(top, #F8F8F8, #D2D2D2);
+	color:#000;
+	font-weight:normal; font-size:13px; line-height: 21px;
+	text-shadow: 0 1px 0 #f5f5f5;
+	-webkit-border-radius:6px;
+	-webkit-box-shadow: #303030 0 1px 2px;
+	border-radius:6px;
+	box-shadow: #303030 0 1px 2px;
+}
+.button:hover {
+	cursor:pointer;
+	background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#fff), to(#e5e5e5));
+	background-image:-moz-linear-gradient(top, #FFF, #E5E5E5);
+}
+.button:active {
+	background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#e5e5e5), to(#ddd));
+	background-image:-moz-linear-gradient(top, #E5E5E5, #DDD);;
+}
+/* #selectedHost::before {
+	content:'';
+	float:left;
+  margin-right:5px;
+	padding:0;  
+	width:20px; 
+	height:20px;
+}
+#selectedHost.diigo::before {
+	background:url(../img/diigo.png) no-repeat 1px 1px;
+	background-size:17px;
+}
+#selectedHost.as::before {
+	background:url(../img/icons.png) no-repeat -160px 0;
+} */
+
+#hostSelection {
+	position:relative;
+	margin-left:62px;
+}
+/* #accountInfo {
+	display:none;
+	float:right;
+}
+.diigo #accountInfo {
+	display:block;
+} */
+#selectionListButton {
+	display:none;
+	float:right;
+	border-left: 1px solid #000;
+	margin-left: 5px;
+	padding-left: 5px;
+	padding-right:5px;
+	cursor:pointer;
+}
+#selectionListButton:hover,
+.showSelectionList #selectionListButton {
+	background-color:#FFF;
+}
+#selectionList {
+	display:none;
+	position:absolute;
+	/* top:30px; */
+	right:10px;
+	background-color:#FFF;
+	list-style:none;
+	cursor:pointer;
+}
+.showSelectionList #selectionList {
+	display:block;
+}
+#selectionList li {
+	margin:5px;
+	padding:1px;
+	text-align:center;
+}
+#selectionList li:hover {
+	text-decoration:underline;
+}
+#selectionList .selected {
+	background-color:#DDD;
+}
+
+/* content */
+/* .content .diigo,
+.content .as {
+	display:none;
+}
+.diigo .content .diigo,
+.as .content .as {
+	display:block;
+} */
+.content .diigo {
+	display:none;
+}
+
+.content .diigo li {
+	margin-bottom:10px;
+}
+.content .diigo li:last-child {
+	margin-bottom:0;
+}
+.content .diigo li input[type=text] {
+	width:100%;
+	background-color:#FFF;
+	font-weight: normal;
+	font-size: 12px;
+}
+
+/* save button */
+.button.save {
+	float:right;
+}
+.button.save::before {
+	content:'';
+	float:left;
+  margin-right:5px;
+	padding:0;  
+	width:20px; 
+	height:20px;
+}
+#saveOnline .diigo .button.save::before {
+	background:url(../img/diigo.png) no-repeat 1px 1px;
+	background-size:17px;
+}
+#saveOnline .as .button.save::before {
+	/* background:url(../img/icon19.png) no-repeat 1px 1px; */
+	background: url(../img/icons.png) no-repeat -280px 0;
+}
+#saveLocal .button.save::before {
+	background:url(../img/icons.png) no-repeat -160px 0;
+}
+
+#privacy {
+	margin-right: 2px;
+	vertical-align: top;
+}
+
+/* overide old */
+#upload {
+	display:none !important; 
+}
+
+/* Account Form
+----------------------------------*/
+.signin #account {
+	display:none;
+}
+#account table {
+	width:100%;
+}
+#account table td {
+	width:50%;
+}
+#account strong {
+	line-height:16px;
+}
+#accountInfo {
+	display: none;
+}
+.signin #accountInfo {
+	display: inline-block;
+}
+#accountInfo a, #privateLink {
+	color:#888;
+	font-weight: normal;
+}
+#accountInfo a:hover, 
+#privateLink:hover {
+	color:#666;
+}
+#accountInfo .name {
+	margin-right:8px;
+}
+
+#diigoAccount.authFailure span::after {
+	content:'Invalid Username / Email and Password combination.';
+	position:absolute;
+	margin-left:20px;
+  margin-top: -5px;
+	line-height: 16px;
+  font-weight: normal;
+	color:red;
+  font-size: 11px;
+}
+.authing span.button::before {
+	content:'Signing in...';
+	position:absolute;
+	margin-left:-90px;
+  font-weight: normal;
+  color: #CBCBCB;
+	text-shadow:none;
+}
+
+/* jqModal - popup */
+.jqmWindow {
+    position: fixed;
+    top: 17%;
+    left: 50%;
+    margin-left: -200px;
+    width: 400px;
+    background-color: rgba(0,0,0,.7);
+    color: #333;
+    padding: 12px;
+		border-radius: 10px;
+		-webkit-box-shadow: 0 5px 10px rgba(0,0,0,.2);
+		box-shadow: 0 5px 10px rgba(0,0,0,.2);
+		color:white;
+		font-weight:bold;
+}
+
+.jqmWindow a{
+	color:white;
+}
+
+.jqmOverlay { background-color: #000; }
+
+/* Form Table */
+/* #account table td{
+	width: 47%;
+	position: relative;
+	display: inline-block;
+	vertical-align: top;
+	border-right: 1px solid rgba(0,0,0,.1);
+	border-left: 1px solid rgba(255,255,255,.3);
+	min-height:130px;
+} */
+
+/* Overide Lagacy Code
+----------------------------------*/
+#legacySave {
+	margin-bottom:20px;
+}
+#legacySave>dl>*,
+#legacySave>* {
+	display:none;
+}
+#legacySave>dl>dd:last-child,
+#legacySave>dl:last-child {
+	display:block;
+}
+
+/* 	Integrate with Diigo - revision 2
+		save page list view
+----------------------------------*/
+
+/* overide */ 
+/* #saveOnline, #legacySave, #saveLocal {
+	display:none !important;
+} */
+#saveOnline, #saveOptionList .local {
+	display:none !important;
+}
+#save-tip {
+	overflow:hidden;
+	margin:10px;
+}
+.button.save::before {
+	display:none;
+}
+.loginByDiigo li input {
+	width:95px;
+}
+.loginByDiigo li input:first-child {
+	margin-right: 10px;
+}
+/*.save #re-edit {
+	display:none;
+}*/
+/* share button */
+.share a { float:left; margin-right:10px; color:#f5f5f5; }
+.share a:hover { text-decoration:underline; }
+.share a span { float:left; margin-right:4px; padding:2px 0; background-image:url(../img/icons-16.png); background-repeat:no-repeat; width:16px; height:16px; }
+.share a.gmail span { background-position:0 50%; }
+.share a.yahoo span { background-position:-16px 50%; }
+.share a.hotmail span { background-position:-32px 50%; }
+.share a.twitter span {background-position:-48px 50%; }
+.share a.facebook span { background-position:-64px 50%; }
+.share a.buzz span { background-position:-80px 50%; }
+
+/* general */
+.loader { 
+	padding-left:22px; 
+	background:url('../img/loader.gif') no-repeat 0 4px; 
+}
+
+.back {
+	/* display: inline-block;
+	margin-top: 12px; */
+	padding: 3px 5px;
+	/* background-color: #202020; */
+	color: #EEE;
+	text-decoration: none;
+	border-radius: 5px;
+}
+.back:hover {
+	background-color: #101010;
+	color: #FFF;
+}
+
+/* save option head */
+#saveOptionHead {
+	/* line-height: 21px;
+	margin-bottom: 10px; */
+	font-weight: bold;
+	font-size: 13px;
+	line-height:13px;
+}
+#saveOptionHead .back {
+	display:none;
+	cursor:pointer;
+}
+/* #saveOptionHead .back::before {
+	content: '\00AB';
+	float:left;
+	margin-right:4px;
+} */
+#saveOptionHead.showContent .back {
+	display:inline;
+}
+#saveOptionHead.showContent .title {
+	display:none;
+}
+
+/* save option body */
+#saveOptionBody {
+	/* position:relative; */
+	/* overflow:hidden; */
+	/* padding:5px 10px 0; */
+	width:200%;
+	border-radius: 5px;
+}
+#saveOptionList,
+#saveOptionContent {
+	float:left;
+	padding-top:10px;
+	width:50%;
+	border-radius:5px;
+	background-color: #4E4C52;
+}
+#saveOptionList>li,
+#saveOptionContent>li {
+	padding:0 10px 10px;
+	line-height:20px;
+}
+/* save option list */
+/* #saveOptionList>li {
+	padding:0 10px 10px;
+	line-height:20px;
+} */
+#saveOptionList>li::before {
+	content: '';
+	float: left;
+	margin-right: 5px;
+	padding: 0;
+	width: 20px;
+	height: 20px;
+}
+.diigo::before {
+	background: url(../img/diigo.png) no-repeat 1px 1px;
+	background-size: 17px;
+}
+.as::before {
+	background: url(../img/icon19.png) no-repeat 1px 1px;
+	background-size: 17px;
+}	
+.local::before {
+	background:url(../img/icons.png) no-repeat -160px 0;
+}
+#saveOptionList>li:hover {
+	cursor:pointer;
+}
+#saveOptionList>li:hover::after {
+	content:url(../img/arrow-option.png);
+	float:right;
+	margin-top:2px;
+}
+/* save option content */
+#saveOptionContent {
+	/* position:absolute;
+	top:0; */
+}
+#saveOptionContent>li {
+	display:none;
+	/* padding: 10px;
+	line-height: 24px; */
+}
+#saveOptionContent>li.selected {
+	display:list-item;
+}
+/* share */
+#saveOptionBody .share>div {
+	float:left;
+	margin-bottom:5px;
+}
+div#saveOptionBody:not(.showContent) .share {
+	display:none !important;
+}
+.public .privateLink,
+.private .socialButton,
+.private .emailButton,
+.private .shareLink {
+	display:none !important;
+}
+.diigo .saveForm,
+.diigo .premium {
+	display:none;
+}
+.diigo .premium a { 
+	margin-left:10px;
+	color:#f5f5f5; 
+	text-decoration:underline; 
+}
+.diigo.signin .saveForm {
+	display:block; 
+}
+.diigo .saveForm li {
+	margin-bottom:10px;
+}
+.diigo .saveForm li:last-child span:first-child {
+	line-height:24px;
+}
+#privacy {
+	vertical-align:-2px;
+}
+/* account */
+#account strong {
+	font-weight:normal;
+	color:#CBCBCB;
+}
+/* animation */
+#saveOptionList {
+	margin-left:0; 
+	-webkit-transition: margin-left 0.2s ease-out;
+	-moz-transition: margin-left 0.2s ease-out;
+}
+.showContent #saveOptionList {
+	margin-left:-50%; 
+	-webkit-transition: margin-left 0.2s ease-out;
+	-moz-transition: margin-left 0.2s ease-out;
+}
