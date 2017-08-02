@@ -31,9 +31,9 @@ Tez-tez verilən suallar:
 
 -Əlbəttə :)
 
-Facebook: https://www.facebook.com/azelabcom/ 
-Twitter: http://twitter.com/azelabcom
-Envato: http://themeforest.net/user/azelab/
-Behance: https://www.behance.net/azelabcom
+- Facebook: https://www.facebook.com/azelabcom/ 
+- Twitter: http://twitter.com/azelabcom
+- Envato: http://themeforest.net/user/azelab/
+- Behance: https://www.behance.net/azelabcom
 
 
