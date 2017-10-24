@@ -32,7 +32,7 @@ class WC_Gateway_Azericard extends WC_Payment_Gateway {
         $this->merch_name = get_bloginfo('name');
         $this->merch_url = ($this->redirect_page_id=="" || $this->redirect_page_id==0)?get_site_url() . "/":get_permalink($this->redirect_page_id);
         $this->email = get_bloginfo('admin_email');
-        $this->backref = WC_AZERICARD_PLUGIN_URL. '/process.php';
+        $this->backref = WC_AZERICARD_PLUGIN_URL. '/azericard-gateway-woocommerce.php';
 
         $this->msg['message'] = "";
         $this->msg['class'] = "";
@@ -298,7 +298,7 @@ class WC_Gateway_Azericard extends WC_Payment_Gateway {
         global $woocommerce;
         $order = new WC_Order( $order_id );
         return array('result' => 'success', 'redirect' => add_query_arg('order',
-            $order->id, add_query_arg('key', $order->order_key, get_permalink(get_option('woocommerce_pay_page_id'))))
+            $order->get_id(), add_query_arg('key', $order->get_order_key(), get_permalink(get_option('woocommerce_pay_page_id'))))
         );
     }
 

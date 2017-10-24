@@ -1,8 +1,8 @@
 <?php
 
 // sending POST-request from script
+
 if( $_POST["TRTYPE"] == "1" && $_POST["ACTION"] == "0" ){
-	
 	$location = explode('wp-content', $_SERVER['SCRIPT_FILENAME']);
 	include ($location[0] . 'wp-load.php');
 
@@ -58,5 +58,6 @@ if( $_POST["TRTYPE"] == "1" && $_POST["ACTION"] == "0" ){
 		$result = $azricard_class->get_web_page($url, $Post);
 
 		$azricard_class->check_azericard_response($result['content']);
+
 	}
 }						

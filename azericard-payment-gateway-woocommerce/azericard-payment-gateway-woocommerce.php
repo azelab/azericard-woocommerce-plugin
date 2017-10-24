@@ -3,7 +3,7 @@
 Plugin Name: WooCommerce Azericard Payment Gateway
 Plugin URI: https://azelab.com/
 Description: Azericard Payment Gateway for Woocommerce
-Version: 1.0.0
+Version: 1.0.1
 Author: Azelab
 Author URI: https://azelab.com/
 */
@@ -20,7 +20,7 @@ class WC_Azericard {
 		define( 'WC_AZERICARD_MAIN_FILE', __FILE__ );
 
 		// Actions
-		add_action( 'plugins_loaded', array( $this, 'init' ), 0 );
+		add_action( 'wp_loaded', array( $this, 'init' ), 0 );
 		add_filter( 'woocommerce_payment_gateways', array( $this, 'register_gateway' ) );
 		add_action( 'admin_enqueue_scripts', array( $this, 'add_azericard_scripts' ) );
 	}
