@@ -42,7 +42,9 @@ class WC_Gateway_Azericard extends WC_Payment_Gateway {
         } else {
             add_action( 'woocommerce_update_options_payment_gateways', array( &$this, 'process_admin_options' ) );
         }
-        add_action('woocommerce_receipt_azericard', array(&$this, 'receipt_page'));
+        // add_action('woocommerce_receipt_azericard', array(&$this, 'receipt_page'));
+        add_action( 'woocommerce_thankyou_azericard', array(&$this, 'receipt_page'), 1);
+        add_action( 'woocommerce_view_order_azericard', array(&$this, 'receipt_page'), 8 );
 
     }
 
@@ -295,11 +297,23 @@ class WC_Gateway_Azericard extends WC_Payment_Gateway {
      * Process the payment and return the result
      **/
     public function process_payment($order_id){
-        global $woocommerce;
-        $order = new WC_Order( $order_id );
-        return array('result' => 'success', 'redirect' => add_query_arg('order',
-            $order->get_id(), add_query_arg('key', $order->get_order_key(), get_permalink(get_option('woocommerce_pay_page_id'))))
+
+        $order = wc_get_order( $order_id );
+        // Mark as on-hold (we're awaiting the cheque)
+        $order->update_status( 'on-hold', _x( 'Awaiting check payment', 'Check payment method', 'azericard' ) );
+
+        // Reduce stock levels
+        wc_reduce_stock_levels( $order_id );
+
+        // Remove cart
+        WC()->cart->empty_cart();
+
+        // Return thankyou redirect
+        return array(
+          'result'   => 'success',
+          'redirect'  => $this->get_return_url( $order ),
         );
+
     }
 
     public function checkCallbackData($data) {

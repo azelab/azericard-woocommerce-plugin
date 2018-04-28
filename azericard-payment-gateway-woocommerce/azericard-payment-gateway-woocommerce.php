@@ -3,7 +3,7 @@
 Plugin Name: WooCommerce Azericard Payment Gateway
 Plugin URI: https://azelab.com/
 Description: Azericard Payment Gateway for Woocommerce
-Version: 1.0.1
+Version: 1.0.0
 Author: Azelab
 Author URI: https://azelab.com/
 */
