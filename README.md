@@ -27,13 +27,5 @@ Tez-tez verilən suallar:
 
 - Aznetə bir balacada olsa faydamız dəysin deyə
 
-6) Facebook səhifənizi like etmək olar?
-
--Əlbəttə :)
-
-- Facebook: https://www.facebook.com/azelabcom/ 
-- Twitter: http://twitter.com/azelabcom
-- Envato: http://themeforest.net/user/azelab/
-- Behance: https://www.behance.net/azelabcom
-
-
+6) Reversal əməlliyatı(refund) işləyirmi?
+Bəli, amma yalnız eyni məbləğ qaytarmaq olur, nə az nə çox. Yani 10 man sifarış olubsa, order səhifəsinda 10 man daxil edib refund düyməsini basırsınız
